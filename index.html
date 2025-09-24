@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reptile Interactive Cursor | @code_wars_official</title>
-</head>
-<body>
-    <body>
-    <script  src="./script.js"></script>
-  
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="/manifest.json">
+    <style>
+      /* hide scrollbars and optionally hide cursor for screensaver */
+      html, body { height: 100%; margin: 0; background: black; }
+      body { overflow: hidden; }
+      canvas { display: block; }
+      .hide-cursor { cursor: none; }
+    </style>
+  </head>
+  <body class="hide-cursor">
+    <!-- Canvas will be created by script.js if missing. -->
+    <script src="./script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').catch(function (err) {
+          console.warn('Service worker registration failed:', err);
+        });
+      }
+    </script>
   </body>
-  </html>
-</body>
 </html>
-  
